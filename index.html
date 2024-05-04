@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .url {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .url code {
+            font-family: Consolas, monospace;
+            color: #007bff;
+        }
+
+        .response {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .response code {
+            font-family: Consolas, monospace;
+            color: #28a745;
+        }
+
+        .error {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>URL Documentation</h2>
+
+        <div class="url">
+            <p>GET <code>[<span class="base_url"></span>subscribers](<span class="base_url"></span>subscribers)</code></p>
+            <div class="response">
+                <p>Response with an array of subscribers(an Object)</p>
+            </div>
+        </div>
+
+        <div class="url">
+            <p>GET <code>[<span class="base_url"></span>subscribers/names](<span class="base_url"></span>subscribers/names)</code></p>
+            <div class="response">
+                <p>Response with an array of subscribers(an Object with only two fields name and subscribedChannel)</p>
+            </div>
+        </div>
+
+        <div class="url">
+            <p>GET <code>[<span class="base_url"></span>subscribers/:id](<span class="base_url"></span>subscribers/:id)</code></p>
+            <div class="response">
+                <p>Response with a subscriber*(an object)* with given id. Response with status code 400 and Error
+                    message({message: error.message}) if id does not match</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const base_url = window.location.href;
+        const allSpans = document.querySelectorAll(".base_url");
+        allSpans.forEach(function (span) {
+            span.innerHTML = base_url;
+        });
+    </script>
+</body>
+
+</html>
